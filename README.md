@@ -170,6 +170,3 @@ The analysis builds upon ideas from
 Integrated BS-MS, IISER Kolkata
 
 Supervisor : Marc Timme, TU Dresden
-- Bifurcation Theory
-- Dynamical Systems
-- Network Dynamics
