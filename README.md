@@ -1,6 +1,6 @@
 # Response Shifts and Tipping in Nonlinear Maps
 
-Analytical and numerical study of discrete-time maps driven by zero-mean oscillatory forcing near a stable fixed point $x^*$. Two questions are addressed: (i) how far the long-time average state shifts away from $x^*$, and (ii) at which forcing amplitude $\varepsilon_c$ the response can no longer stay near $x^*$ (tipping). This is the discrete-time counterpart of the continuous-time work of Thümler, Schröder and Timme (2022).
+Analytical and numerical study of discrete-time maps driven by zero-mean oscillatory forcing near a stable fixed point $x^* $. Two questions are addressed: (i) how far the long-time average state shifts away from $x^* $, and (ii) at which forcing amplitude $\varepsilon_c$ the response can no longer stay near $x^* $ (tipping). This is the discrete-time counterpart of the continuous-time work of Thümler, Schröder and Timme (2022).
 
 ---
 
