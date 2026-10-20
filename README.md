@@ -50,10 +50,7 @@ where $G_p$ is the stroboscopic map. The derivatives $G_{p,\varepsilon}$ and $G_
 ```text
 .
 ├── research-log.md
-├── numerics/
-│   ├── python/
-│   ├── matlab/
-│   └── notebooks/
+├── src/
 ├── figures/
 ├── manuscript/
 └── README.md
