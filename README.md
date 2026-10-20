@@ -1,6 +1,6 @@
 # Response Shifts and Tipping in Nonlinear Maps
 
-Analytical and numerical study of discrete-time maps driven by zero-mean oscillatory forcing near a stable fixed point $x^\ast $. Two questions are addressed: (i) how far the long-time average state shifts away from $x^* $ and (ii) at which forcing amplitude $\varepsilon_c$ the response can no longer stay near $x^* $ (tipping). This is the discrete-time counterpart of the continuous-time work of Thümler, Schröder and Timme (2022).
+Analytical and numerical study of discrete-time maps driven by zero-mean oscillatory forcing near a stable fixed point $x^\ast $. Two questions are addressed: (i) how far the long-time average state shifts away from $x^\ast $ and (ii) at which forcing amplitude $\varepsilon_c$ the response can no longer stay near $x^\ast $ (tipping). This is the discrete-time counterpart of the continuous-time work of Thümler, Schröder and Timme (2022).
 
 ---
 
@@ -10,7 +10,7 @@ $$
 x_{t+1}=F(x_t)+\varepsilon\, g(t),\qquad g(t)=\cos(\Omega t+\varphi),
 $$
 
-where $F$ is a nonlinear map with a stable fixed point $x^*$ and $\varepsilon$ is the forcing strength. The alternating forcing $g(t)=(-1)^t$ is the case $\Omega=\pi$, $\varphi=0$. The worked model is $F(x)=ax+bx^2$ (numerics use $a=\tfrac12$, $b=1$).
+where $F$ is a nonlinear map with a stable fixed point $x^\ast$ and $\varepsilon$ is the forcing strength. The alternating forcing $g(t)=(-1)^t$ is the case $\Omega=\pi$, $\varphi=0$. The worked model is $F(x)=ax+bx^2$ (numerics use $a=\tfrac12$, $b=1$).
 
 ---
 
@@ -19,7 +19,7 @@ where $F$ is a nonlinear map with a stable fixed point $x^*$ and $\varepsilon$ i
 **1. Weak forcing: quadratic response shift.** The average shift is
 
 $$
-\Delta \bar{x} = \frac{F''(x^{*})}{4(1-F'(x^{*}))(1+F'(x^{*})^2-2F'(x^{*})\cos(\Omega))}\varepsilon^2 + O(\varepsilon^3)
+\Delta \bar{x} = \frac{F''(x^\ast)}{4(1-F'(x^\ast))(1+F'(x^\ast)^2-2F'(x^\ast)\cos(\Omega))}\varepsilon^2 + O(\varepsilon^3)
 $$
 
 - The derivation uses only boundedness of the orbit, so $\Omega/2\pi$ may be rational or irrational.
