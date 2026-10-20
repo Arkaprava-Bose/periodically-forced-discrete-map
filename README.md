@@ -1,105 +1,47 @@
-# Scaling Laws in Periodically Forced Nonlinear Discrete-Time Maps
+# Response Shifts and Tipping in Nonlinear Maps
 
-This repository investigates the response of nonlinear discrete-time dynamical systems to periodic external forcing, with emphasis on scaling behaviour near stable fixed points and near critical (tipping) transitions.
-
-The project combines analytical perturbation theory, bifurcation analysis, and numerical simulations to understand how the forcing amplitude and frequency influence the long-time dynamics.
+Analytical and numerical study of discrete-time maps driven by zero-mean oscillatory forcing near a stable fixed point $x^*$. Two questions are addressed: (i) how far the long-time average state shifts away from $x^*$, and (ii) at which forcing amplitude $\varepsilon_c$ the response can no longer stay near $x^*$ (tipping). This is the discrete-time counterpart of the continuous-time work of Thümler, Schröder and Timme (2022).
 
 ---
 
-## Overview
-
-We consider periodically forced nonlinear maps of the form
+## Setup
 
 $$
-x_{t+1}=F(x_t)+\varepsilon g(t),
+x_{t+1}=F(x_t)+\varepsilon\, g(t),\qquad g(t)=\cos(\Omega t+\varphi),
 $$
 
-where
-
-- $F(x)$ is a nonlinear discrete map,
-- $\varepsilon$ is the forcing amplitude,
-- $g(t)$ is a periodic forcing with zero time average.
-
-The principal forcing considered is
-
-$$
-g(t)=e^{i(\Omega t+\varphi)},
-$$
-
-which naturally includes
-
-$$
-g(t)=(-1)^t
-$$
-
-as the special case
-
-$$
-\Omega=\pi,\qquad\varphi=0.
-$$
-
----
-
-## Objectives
-
-The project addresses two complementary regimes.
-
-### 1. Perturbative response near a stable fixed point
-
-For weak forcing,
-
-$$
-\varepsilon\ll1,
-$$
-
-the long-time average response is derived analytically using perturbation theory.
-
-The resulting quadratic response scales as
-
-$$
-\Delta\bar{x}
-\propto
-\varepsilon^2,
-$$
-
-with an explicit frequency-dependent prefactor.
-
----
-
-### 2. Critical scaling near tipping
-
-As the forcing amplitude approaches the critical value
-
-$$
-\varepsilon_c,
-$$
-
-the stable periodic orbit disappears via a saddle-node bifurcation of the corresponding stroboscopic map.
-
-Near the critical point,
-
-$$
-|\bar{x}-\bar{x}_c|
-\sim
-C_c
-|\varepsilon-\varepsilon_c|^{1/2},
-$$
-
-where
-
-- the exponent \(1/2\) is universal,
-- the critical prefactor \(C_c\) depends on the nonlinear dynamics and the forcing.
+where $F$ is a nonlinear map with a stable fixed point $x^*$ and $\varepsilon$ is the forcing strength. The alternating forcing $g(t)=(-1)^t$ is the case $\Omega=\pi$, $\varphi=0$. The worked model is $F(x)=ax+bx^2$ (numerics use $a=\tfrac12$, $b=1$).
 
 ---
 
 ## Main Results
 
-- Analytical perturbative response for general periodic forcing.
-- Explicit frequency-dependent prefactor for weak forcing.
-- Analytical derivation of the universal square-root scaling near tipping.
-- Analytical expression for the critical prefactor in the two-period forcing case.
-- Numerical verification of both perturbative and critical scaling laws.
-- Comparison between theory and numerical simulations over several decades in forcing amplitude.
+**1. Weak forcing: quadratic response shift.** The average shift is
+
+$$
+\Delta\bar{x}=\frac{F''(x^*)}{4\,[1-F'(x^*)]\,[1+F'(x^*)^2-2F'(x^*)\cos\Omega]}\;\varepsilon^2+O(\varepsilon^3).
+$$
+
+- The derivation uses only boundedness of the orbit, so $\Omega/2\pi$ may be rational or irrational.
+- It comes with explicit confinement and remainder bounds.
+- $\Omega=\pi$ is exceptional and gives twice the value above.
+- For the quadratic map, the bounds give $\varepsilon_c\ge(1-a)^2/(4|b|)$.
+
+**2. Tipping as a fold of the stroboscopic map.** For $\Omega=2\pi/p$ the periodic response approaches the critical orbit with a square-root law,
+
+$$
+|x-x_c|=A(p)\,|\varepsilon-\varepsilon_c|^{1/2},\qquad A(p)=\sqrt{\frac{2G_{p,\varepsilon}}{G_{p,xx}}},
+$$
+
+where $G_p$ is the stroboscopic map. The derivatives $G_{p,\varepsilon}$ and $G_{p,xx}$ are given in closed form along the critical orbit for general $p$.
+
+**3. Large-period limit.** Harmonic balance for the critical orbit combined with Laplace's method gives $A(p)\propto e^{-pS(\theta_*)/4\pi}$. Harmonic balance reproduces the pseudo-arclength critical amplitude to $6\times10^{-9}$ at $p=30$.
+
+**4. Numerical checks.**
+- The confinement and remainder bounds hold.
+- The $\varepsilon^2$ law is confirmed (fitted exponent $2.000\pm0.002$ for $p=2,3,5,10$ and the golden-mean frequency).
+- The square-root scaling is confirmed (fitted exponent $0.501$ at $p=2$).
+- $A(p)$ decays exponentially in $p$ .
 
 ---
 
@@ -108,58 +50,32 @@ where
 ```text
 .
 ├── research-log.md
-│
 ├── numerics/
 │   ├── python/
 │   ├── matlab/
 │   └── notebooks/
-│
 ├── figures/
-│
 ├── manuscript/
-│
 └── README.md
 ```
 
 ---
 
-## Methodology
-
-The analysis combines
-
-- perturbation theory,
-- nonlinear discrete dynamical systems,
-- saddle-node bifurcation theory,
-- stroboscopic maps,
-- numerical continuation,
-- direct numerical simulations.
-
----
-
 ## Current Status
 
-Current progress includes
+Done: weak-forcing theory with bounds, fold scaling for general $p$, harmonic-balance and Laplace analysis, numerical verification.
 
-- analytical perturbation theory,
-- numerical verification,
-- critical scaling derivation,
-- analytical prefactor for period-two forcing.
-
-Ongoing work includes
-
-- frequency dependence of the critical prefactor,
-- extension to general periodic forcing,
-- manuscript preparation.
+Ongoing:
+- Analytical evaluation of $S(\theta_*)/4\pi$ to compare with the fitted decay rate.
+- Resolving the ~1% harmonic-balance vs. continuation mismatch at $p=40$.
+- Manuscript preparation.
 
 ---
 
 ## References
 
-The analysis builds upon ideas from
-
-- Steven H. Strogatz, *Nonlinear Dynamics and Chaos*.
-- Yuri A. Kuznetsov, *Elements of Applied Bifurcation Theory*.
-- Relevant literature on periodically forced discrete dynamical systems and saddle-node bifurcations.
+- M. Thümler, M. Schröder, M. Timme, *Nonlinear and divergent responses of fluctuation-driven systems*, IFAC-PapersOnLine **55**, 254 (2022).
+- Y. A. Kuznetsov, *Elements of Applied Bifurcation Theory*, Springer (2010).
 
 ---
 
@@ -169,4 +85,4 @@ The analysis builds upon ideas from
 
 Integrated BS-MS, IISER Kolkata
 
-Supervisor : Marc Timme, TU Dresden
+Supervisor: Marc Timme, TU Dresden
