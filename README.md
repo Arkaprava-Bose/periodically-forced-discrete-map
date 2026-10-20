@@ -19,7 +19,7 @@ where $F$ is a nonlinear map with a stable fixed point $x^*$ and $\varepsilon$ i
 **1. Weak forcing: quadratic response shift.** The average shift is
 
 $$
-\Delta \bar{x} = \frac{F''(x^*)}{4(1-F'(x^*))(1+F'(x^*)^2-2F'(x^*)\cos(\Omega))}\varepsilon^2 + O(\varepsilon^3)
+\Delta \bar{x} = \frac{F''(x^{*})}{4(1-F'(x^{*}))(1+F'(x^{*})^2-2F'(x^{*})\cos(\Omega))}\varepsilon^2 + O(\varepsilon^3)
 $$
 
 - The derivation uses only boundedness of the orbit, so $\Omega/2\pi$ may be rational or irrational.
